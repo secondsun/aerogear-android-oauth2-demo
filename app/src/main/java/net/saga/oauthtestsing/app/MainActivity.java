@@ -72,6 +72,7 @@ public class MainActivity extends ActionBarActivity {
             authzConfig.setClientSecret(AUTHZ_CLIENT_SECRET);
             authzConfig.setRedirectURL(AUTHZ_REDIRECT_URL);
             authzConfig.getAdditionalAuthorizationParams().add(Pair.create("access_type", "offline"));
+            authzConfig.getAdditionalAuthorizationParams().add(Pair.create("approval_prompt", "force"));
             authzConfig.setScopes(new ArrayList<String>() {{
                 add("https://www.googleapis.com/auth/drive");
             }});
@@ -83,12 +84,14 @@ public class MainActivity extends ActionBarActivity {
             authzModule.requestAccess("state", this, new Callback<String>() {
                 @Override
                 public void onSuccess(String o) {
-                    Log.d("TOKEN ++ ", o);
+                    Log.d("TOKEN ++ ", o + "");
                     retriveFiles();
                 }
 
+
                 @Override
                 public void onFailure(Exception e) {
+                    Log.e("MainActivity", e.getMessage(), e);
                     Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
                 }
             });

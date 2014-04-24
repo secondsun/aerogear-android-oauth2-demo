@@ -1,5 +1,6 @@
 package net.saga.oauthtestsing.app;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,18 +12,37 @@ import android.widget.ListView;
 import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class DriveFragment extends Fragment {
 
-    private final List<Files> fileses;
+    private ArrayList<Files> fileses = new ArrayList<Files>();
+    private static final String FILES_KEY = "oauthtesting.FILES";
+
+    public DriveFragment() {
+        this.fileses = new ArrayList<Files>();
+    }
 
     public DriveFragment(List<Files> fileses) {
-        this.fileses = fileses;
+        this.fileses = new ArrayList<Files>(fileses);
+        Bundle arguments = new Bundle();
+        arguments.putParcelableArrayList(FILES_KEY, this.fileses);
+    }
+
+    @Override
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
+        if (getArguments() != null && getArguments().getParcelableArrayList(FILES_KEY) != null) {
+            if (fileses.isEmpty()) {
+                fileses = getArguments().getParcelableArrayList(FILES_KEY);
+            }
+        }
     }
 
     @Override
     public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.drive_list, null);
 
         ListView driveItems = (ListView) view.findViewById(R.id.drive_items);

@@ -24,11 +24,6 @@ public class DriveFragment extends Fragment {
         this.fileses = new ArrayList<Files>();
     }
 
-    public DriveFragment(List<Files> fileses) {
-        this.fileses = new ArrayList<Files>(fileses);
-        Bundle arguments = new Bundle();
-        arguments.putParcelableArrayList(FILES_KEY, this.fileses);
-    }
 
     @Override
     public void onAttach(Activity activity) {
@@ -67,6 +62,14 @@ public class DriveFragment extends Fragment {
         });
 
         return view;
+    }
+
+    public static DriveFragment newInstance(List<Files> files) {
+        Bundle arguments = new Bundle();
+        arguments.putParcelableArrayList(FILES_KEY, new ArrayList<>(files));
+        DriveFragment fragment = new DriveFragment();
+        fragment.setArguments(arguments);
+        return fragment;
     }
 
 }

@@ -146,7 +146,7 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void displayDriveFiles(List<Files> fileses) {
-        DriveFragment driveFragment = new DriveFragment(fileses);
+        DriveFragment driveFragment = DriveFragment.newInstance(fileses);
         displayFragment(driveFragment);
     }
 

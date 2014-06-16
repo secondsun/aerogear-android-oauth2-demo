@@ -17,11 +17,11 @@ import java.util.List;
 
 public class DriveFragment extends Fragment {
 
-    private ArrayList<Files> fileses = new ArrayList<Files>();
+    private ArrayList<Files> files = new ArrayList<Files>();
     private static final String FILES_KEY = "oauthtesting.FILES";
 
     public DriveFragment() {
-        this.fileses = new ArrayList<Files>();
+        this.files = new ArrayList<Files>();
     }
 
 
@@ -29,8 +29,8 @@ public class DriveFragment extends Fragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         if (getArguments() != null && getArguments().getParcelableArrayList(FILES_KEY) != null) {
-            if (fileses.isEmpty()) {
-                fileses = getArguments().getParcelableArrayList(FILES_KEY);
+            if (files.isEmpty()) {
+                files = getArguments().getParcelableArrayList(FILES_KEY);
             }
         }
     }
@@ -42,10 +42,10 @@ public class DriveFragment extends Fragment {
 
         ListView driveItems = (ListView) view.findViewById(R.id.drive_items);
 
-        driveItems.setAdapter(new ArrayAdapter<Files>(getActivity(), android.R.layout.simple_list_item_1, fileses) {
+        driveItems.setAdapter(new ArrayAdapter<Files>(getActivity(), android.R.layout.simple_list_item_1, files) {
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
-                Files files = fileses.get(position);
+                Files files = DriveFragment.this.files.get(position);
 
                 if (convertView == null) {
                     convertView = inflater.inflate(R.layout.drive_list_item, null);

@@ -5,8 +5,6 @@ import android.os.Parcelable;
 
 import org.jboss.aerogear.android.RecordId;
 
-import java.net.URL;
-
 public class Files implements Parcelable{
 
     @RecordId
@@ -71,11 +69,11 @@ public class Files implements Parcelable{
     }
 
     @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(id);
-        dest.writeString(title);
-        dest.writeString(webContentLink);
-        dest.writeString(iconLink);
+    public void writeToParcel(Parcel destination, int flags) {
+        destination.writeString(id);
+        destination.writeString(title);
+        destination.writeString(webContentLink);
+        destination.writeString(iconLink);
 
     }
 

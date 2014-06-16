@@ -54,7 +54,7 @@ public class MainActivity extends ActionBarActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if(authzModule.isAuthorized()) {
-            retriveFiles();
+            retrieveFiles();
         } else {
             authz();
         }
@@ -85,7 +85,7 @@ public class MainActivity extends ActionBarActivity {
                 @Override
                 public void onSuccess(String o) {
                     Log.d("TOKEN ++ ", o + "");
-                    retriveFiles();
+                    retrieveFiles();
                 }
 
 
@@ -103,7 +103,7 @@ public class MainActivity extends ActionBarActivity {
         }
     }
 
-    private void retriveFiles() {
+    private void retrieveFiles() {
 
         displayLoading();
 
@@ -124,9 +124,9 @@ public class MainActivity extends ActionBarActivity {
         Pipe<Files> documentsPipe = pipeline.get("files", this);
         documentsPipe.read(new Callback<List<Files>>() {
             @Override
-            public void onSuccess(final List<Files> fileses) {
-                Toast.makeText(getApplicationContext(), getString(R.string.fetched, fileses.size()), Toast.LENGTH_LONG).show();
-                displayDriveFiles(fileses);
+            public void onSuccess(final List<Files> files) {
+                Toast.makeText(getApplicationContext(), getString(R.string.fetched, files.size()), Toast.LENGTH_LONG).show();
+                displayDriveFiles(files);
             }
 
             @Override
@@ -145,8 +145,8 @@ public class MainActivity extends ActionBarActivity {
                 .commit();
     }
 
-    private void displayDriveFiles(List<Files> fileses) {
-        DriveFragment driveFragment = DriveFragment.newInstance(fileses);
+    private void displayDriveFiles(List<Files> files) {
+        DriveFragment driveFragment = DriveFragment.newInstance(files);
         displayFragment(driveFragment);
     }
 

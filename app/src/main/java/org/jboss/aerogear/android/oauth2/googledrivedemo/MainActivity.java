@@ -1,4 +1,4 @@
-package net.saga.oauthtestsing.app;
+package org.jboss.aerogear.android.oauth2.googledrivedemo;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,6 +8,8 @@ import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import net.saga.oauthtestsing.app.R;
 
 import org.jboss.aerogear.android.Callback;
 import org.jboss.aerogear.android.Pipeline;
@@ -22,12 +24,12 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import static net.saga.oauthtestsing.app.Constants.AUTHZ_ACCOOUNT_ID;
-import static net.saga.oauthtestsing.app.Constants.AUTHZ_CLIENT_ID;
-import static net.saga.oauthtestsing.app.Constants.AUTHZ_CLIENT_SECRET;
-import static net.saga.oauthtestsing.app.Constants.AUTHZ_ENDPOINT;
-import static net.saga.oauthtestsing.app.Constants.AUTHZ_REDIRECT_URL;
-import static net.saga.oauthtestsing.app.Constants.AUTHZ_TOKEN_ENDPOINT;
+import static org.jboss.aerogear.android.oauth2.googledrivedemo.Constants.AUTHZ_ACCOOUNT_ID;
+import static org.jboss.aerogear.android.oauth2.googledrivedemo.Constants.AUTHZ_CLIENT_ID;
+import static org.jboss.aerogear.android.oauth2.googledrivedemo.Constants.AUTHZ_CLIENT_SECRET;
+import static org.jboss.aerogear.android.oauth2.googledrivedemo.Constants.AUTHZ_ENDPOINT;
+import static org.jboss.aerogear.android.oauth2.googledrivedemo.Constants.AUTHZ_REDIRECT_URL;
+import static org.jboss.aerogear.android.oauth2.googledrivedemo.Constants.AUTHZ_TOKEN_ENDPOINT;
 
 public class MainActivity extends ActionBarActivity {
 

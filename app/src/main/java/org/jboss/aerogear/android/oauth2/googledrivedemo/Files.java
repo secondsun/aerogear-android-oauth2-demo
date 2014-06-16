@@ -1,4 +1,4 @@
-package net.saga.oauthtestsing.app;
+package org.jboss.aerogear.android.oauth2.googledrivedemo;
 
 import android.os.Parcel;
 import android.os.Parcelable;

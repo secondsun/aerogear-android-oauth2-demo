@@ -1,4 +1,4 @@
-package net.saga.oauthtestsing.app;
+package org.jboss.aerogear.android.oauth2.googledrivedemo;
 
 public interface Constants {
 

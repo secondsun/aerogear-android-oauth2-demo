@@ -1,4 +1,4 @@
-package net.saga.oauthtestsing.app;
+package org.jboss.aerogear.android.oauth2.googledrivedemo;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -11,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.squareup.picasso.Picasso;
+
+import net.saga.oauthtestsing.app.R;
 
 import java.util.ArrayList;
 import java.util.List;

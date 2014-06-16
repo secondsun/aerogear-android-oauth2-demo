@@ -81,7 +81,7 @@ public class MainActivity extends ActionBarActivity {
 
             authzModule = new OAuth2AuthzModule(authzConfig);
 
-            authzModule.requestAccess("state", this, new Callback<String>() {
+            authzModule.requestAccess(this, new Callback<String>() {
                 @Override
                 public void onSuccess(String o) {
                     Log.d("TOKEN ++ ", o + "");

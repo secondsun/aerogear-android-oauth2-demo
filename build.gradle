@@ -17,9 +17,13 @@
 buildscript {
     repositories {
         mavenCentral()
+        mavenLocal()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.11.+'
+        classpath (group:'nl.javadude.gradle.plugins', name:'license-gradle-plugin', version:'0.10.0-SNAPSHOT', changing:true) {
+            exclude group: 'com.google.guava'
+        }
+        classpath 'com.android.tools.build:gradle:0.11.1'
     }
 }
 
